@@ -21,6 +21,9 @@ body {
     border-radius: 8px;
     
 }
+.second span{
+    border-bottom: 2px solid blue;
+}
 
 .second h1{
     margin-top: 3%;
