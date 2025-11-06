@@ -1,0 +1,20 @@
+#mainDiv{
+     width: 700px;
+    height: 700px;
+   border: 1px solid #ccc;
+    background-color: rgb(197, 155, 236);
+    display: grid;  /*it gave height according to parent*/
+    grid-template-columns: 100px 100px 100px 100px;
+    justify-content: center;  /* it shift  all the grid*/
+    justify-items: center;   /*it shift item of grid*/
+   /* align-items: center;*/
+  /*  grid-template-columns: auto auto auto; */
+}
+
+.subDiv{
+     width: 60px;
+     height: 60px;
+    border: 1px solid #ccc;
+   background-color: beige;
+
+}
