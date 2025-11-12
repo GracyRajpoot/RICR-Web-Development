@@ -1,0 +1,56 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#dabba{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+   
+    animation: movingDabba 5s linear infinite;
+    background-color: crimson;
+}
+
+@keyframes movingDabba {
+    0%{
+        top:0px;
+        left:0px;
+        background-color: blueviolet;
+    }
+     25%{
+        top:0px;
+        left:500px;
+        background-color: burlywood;
+    }
+   50%{
+        top:500px;
+        left:500px;
+        background-color: aquamarine;
+    }
+     75%{
+        top:500px;
+        left:0px;
+        background-color: blue;
+    }
+     100%{
+        top:0px;
+        left:0px;
+        background-color: chartreuse;
+    }
+}
+
+#d2{
+    border: 1px solid #000;
+    font-size: xx-large;
+    background-color: rgb(201, 201, 241);
+    width: 100px;
+    height: 50px;
+    transform: rotate(180deg);
+  
+}
+
+#d2:hover{
+    transform: rotateY(90);
+    transition: transform;
+}
