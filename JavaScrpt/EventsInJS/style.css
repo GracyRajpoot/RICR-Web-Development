@@ -1,0 +1,27 @@
+#bulb{
+    padding: 100px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: fit-content;
+}
+
+button{
+    margin: 10px;
+}
+
+#smartBulb{
+    height: 100px;
+   width: 200px;
+   border: 1px solid #000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   width: fit-content;
+   color: aquamarine;
+
+}
+
+
+
+

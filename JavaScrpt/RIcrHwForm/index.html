@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h2>Enquiry Form</h2>
+    <p class="sub">Have questions or need assistance? Fill out the form below.</p>
+
+    <form id="enquiryForm">
+      <label>Person Name*</label>
+      <input type="text" name="name" required placeholder="Person Name" />
+
+      <label>Contact Number*</label>
+      <input type="text" name="contact" required placeholder="Contact Number" />
+
+      <label>Email*</label>
+      <input type="email" name="email" required placeholder="Email" />
+
+      <label>Qualification*</label>
+      <input type="text" name="qualification" required placeholder="Qualification" />
+
+      <label>College/School Name*</label>
+      <input type="text" name="college" required placeholder="College/School Name" />
+
+      <label>Year*</label>
+      <select name="year" required>
+        <option value="">Select Year</option>
+        <option>1st Year</option>
+        <option>2nd Year</option>
+        <option>3rd Year</option>
+        <option>4th Year</option>
+      </select>
+
+      <label>Branch*</label>
+      <input type="text" name="branch" required placeholder="Branch" />
+
+      <label>Interested in Which Course*</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" /> Full Stack Web Development</label>
+        <label><input type="checkbox" /> Data Science with Python</label>
+        <label><input type="checkbox" /> Data Analytics with Python</label>
+        <label><input type="checkbox" /> Business Analyst</label>
+        <label><input type="checkbox" /> Java Programming</label>
+        <label><input type="checkbox" /> Python Programming</label>
+        <label><input type="checkbox" /> C/C++ Programming</label>
+        <label><input type="checkbox" /> Other</label>
+      </div>
+
+      <label>Source of Information*</label>
+      <select name="source" required>
+        <option value="">Select Source</option>
+        <option>Instagram</option>
+        <option>Facebook</option>
+        <option>Friend</option>
+        <option>Received call from institute</option>
+      </select>
+
+      <label>Name of Executive*</label>
+      <select name="executive" required>
+        <option value="">Select Executive</option>
+        <option>Executive 1</option>
+        <option>Executive 2</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <footer>
+    <h3>RICR</h3>
+    <p>RICR is a premier coding and robotics institute providing cutting-edge education.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
