@@ -1,0 +1,24 @@
+body {
+    text-align: center;
+    font-family: Arial;
+}
+
+#mapContainer {
+    position: relative;
+    width: 600px;
+    margin: 20px auto;
+}
+
+#indiaMap {
+    width: 100%;
+}
+
+.flag {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    transform: translate(-50%, -100%);
+    border: 2px solid white;
+}
