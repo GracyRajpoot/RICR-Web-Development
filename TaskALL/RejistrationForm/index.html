@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coaching Institute Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container my-5">
+    <div class="card p-4 form-card">
+        <h3 class="text-center mb-4">🏫 Coaching Institute Registration Form</h3>
+
+        <form id="registrationForm" novalidate>
+
+            <!-- Personal Information -->
+            <h5 class="section-title">Personal Information</h5>
+
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="fullName" class="form-control">
+                <small class="error" id="nameError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" id="email" class="form-control">
+                <small class="error" id="emailError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Mobile Number</label>
+                <input type="text" id="mobile" class="form-control">
+                <small class="error" id="mobileError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Date of Birth</label>
+                <input type="date" id="dob" class="form-control">
+                <small class="error" id="dobError"></small>
+            </div>
+
+            <!-- Academic Details -->
+            <h5 class="section-title">Academic Details</h5>
+
+            <div class="mb-3">
+                <label class="form-label">Last Completed Qualification</label>
+                <select id="qualification" class="form-select">
+                    <option value="">Select</option>
+                    <option>10th</option>
+                    <option>12th</option>
+                    <option>Graduate</option>
+                    <option>Postgraduate</option>
+                </select>
+                <small class="error" id="qualificationError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Percentage / Grade</label>
+                <input type="text" id="percentage" class="form-control">
+                <small class="error" id="percentageError"></small>
+            </div>
+
+            <!-- Course Information -->
+            <h5 class="section-title">Course Information</h5>
+
+            <div class="mb-3">
+                <label class="form-label">Preferred Course</label>
+                <select id="course" class="form-select">
+                    <option value="">Select</option>
+                    <option>IIT-JEE</option>
+                    <option>NEET</option>
+                    <option>Banking Exams</option>
+                    <option>UPSC</option>
+                </select>
+                <small class="error" id="courseError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Batch Timing Preference</label>
+                <select id="batch" class="form-select">
+                    <option value="">Select</option>
+                    <option>Morning</option>
+                    <option>Afternoon</option>
+                    <option>Evening</option>
+                    <option>Weekend</option>
+                </select>
+                <small class="error" id="batchError"></small>
+            </div>
+
+            <!-- Address -->
+            <h5 class="section-title">Address</h5>
+
+            <div class="mb-3">
+                <label class="form-label">Residential Address</label>
+                <textarea id="address" class="form-control"></textarea>
+                <small class="error" id="addressError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">City</label>
+                <input type="text" id="city" class="form-control">
+                <small class="error" id="cityError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Pin Code</label>
+                <input type="text" id="pincode" class="form-control">
+                <small class="error" id="pincodeError"></small>
+            </div>
+
+            <!-- Guardian Details -->
+            <h5 class="section-title">Guardian Details</h5>
+
+            <div class="mb-3">
+                <label class="form-label">Guardian’s Full Name</label>
+                <input type="text" id="guardianName" class="form-control">
+                <small class="error" id="guardianNameError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Guardian’s Contact Number</label>
+                <input type="text" id="guardianMobile" class="form-control">
+                <small class="error" id="guardianMobileError"></small>
+            </div>
+
+            <!-- Additional Info -->
+            <h5 class="section-title">Additional Information</h5>
+
+            <div class="mb-3">
+                <label class="form-label">How did you hear about us?</label>
+                <select id="source" class="form-select">
+                    <option value="">Select</option>
+                    <option>Friends</option>
+                    <option>Online Ad</option>
+                    <option>Newspaper</option>
+                    <option>Social Media</option>
+                    <option>Other</option>
+                </select>
+                <small class="error" id="sourceError"></small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Special Requirements (Optional)</label>
+                <textarea class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+
+            <p class="success-msg text-center mt-3" id="successMsg"></p>
+        </form>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

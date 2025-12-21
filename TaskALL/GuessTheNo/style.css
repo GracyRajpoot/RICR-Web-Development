@@ -1,0 +1,24 @@
+body {
+    background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+    font-family: Arial, sans-serif;
+}
+
+.game-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.btn-primary {
+    background-color: #6a1b9a;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #4a148c;
+}
+
+#message {
+    font-size: 1rem;
+}

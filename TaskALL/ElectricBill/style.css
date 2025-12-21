@@ -1,0 +1,29 @@
+body {
+    background: linear-gradient(135deg, #e2a9d5, #c364c6);
+    font-family: Arial, sans-serif;
+}
+
+.bill-card {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.btn-primary {
+    background-color: #62bae3;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #81ebf1;
+}
+
+.error-msg {
+    color: red;
+    font-size: 0.85rem;
+}
+
+.list-group-item {
+    font-size: 0.95rem;
+}
