@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Salary Calculator</h2>
+
+    <label>Basic Salary</label>
+    <input type="number" id="basicSalary" placeholder="Enter basic salary">
+
+    <button onclick="handleCalculate()">Calculate Gross Salary</button>
+
+    <div class="result">
+        <p>Basic Salary: <span id="basicResult">₹0.00</span></p>
+        <p>HRA: <span id="hraResult">₹0.00</span></p>
+        <p>DA: <span id="daResult">₹0.00</span></p>
+        <p class="gross">Gross Salary: <span id="grossResult">₹0.00</span></p>
+    </div>
+
+    <button class="reset" onclick="resetData()">Clear / Reset</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
