@@ -1,0 +1,14 @@
+a:hover{
+    color:burlywood !important;
+}
+a:active{
+    color:red !important;
+}
+
+#home{
+    height: 100vh;
+}
+
+.card{
+    height: 500px;
+}
