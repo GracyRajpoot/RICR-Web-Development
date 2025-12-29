@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+.home {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Hero Section */
+.hero {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+}
+
+.hero-content p {
+  margin: 15px 0;
+  max-width: 500px;
+}
+
+.hero-content button {
+  padding: 12px 25px;
+  background: #ff4d6d;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+/* Products */
+.products {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 220px;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+  background: #fff0f3;
+}
+
+.feature {
+  text-align: center;
+  max-width: 250px;
+}
+
+/* CTA */
+.cta {
+  padding: 70px;
+  text-align: center;
+  background: #ff4d6d;
+  color: white;
+}
+
+.cta button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: white;
+  color: #ff4d6d;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
