@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const Products = () => {
-  const products = [
+const Product = () => {
+  const product = [
     { name: "Lipstick", price: "₹599" },
     { name: "Foundation", price: "₹999" },
     { name: "Mascara", price: "₹499" },
@@ -15,8 +15,8 @@ const Products = () => {
   return (
     <>
       <Navbar />
-      <section className="products">
-        <h2>Our Products</h2>
+      <section className="product">
+        <h2>Our Product</h2>
         <div className="product-grid">
           {products.map((item, index) => (
             <div className="card" key={index}>
@@ -32,4 +32,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Product;

@@ -1,94 +1,126 @@
-@import 'tailwindcss';
-.home {
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
   font-family: "Poppins", sans-serif;
+  background-color: #fff5f8;
+  color: #333;
 }
 
-/* Hero Section */
-.hero {
-  height: 90vh;
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9");
-  background-size: cover;
-  background-position: center;
+/* ===== NAVBAR ===== */
+.navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 50px;
+  padding: 15px 50px;
+  background: linear-gradient(90deg, #ff4f9a, #ff8fc7);
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.navbar a {
+  text-decoration: none;
   color: white;
 }
+.navbar a:hover { color: #ffe6f0; }
 
-.hero-content h1 {
-  font-size: 3.5rem;
+/* ===== HERO ===== */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 50px;
 }
-
-.hero-content p {
-  margin: 15px 0;
-  max-width: 500px;
-}
-
-.hero-content button {
+.hero h1 { font-size: 3.5rem; margin-bottom: 15px; }
+.hero p { max-width: 500px; margin-bottom: 20px; }
+.hero button {
   padding: 12px 25px;
   background: #ff4d6d;
   border: none;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
   border-radius: 25px;
+  color: white;
+  cursor: pointer;
 }
 
-/* Products */
-.products {
-  padding: 60px 40px;
-  text-align: center;
-}
-
-.product-grid {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.product-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  width: 220px;
-}
-
-.product-card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* Features */
+/* ===== FEATURES ===== */
 .features {
   display: flex;
   justify-content: space-around;
   padding: 50px;
   background: #fff0f3;
 }
+.feature { text-align: center; max-width: 250px; }
 
-.feature {
-  text-align: center;
-  max-width: 250px;
+/* ===== PRODUCTS ===== */
+.products { padding: 60px 40px; text-align: center; }
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
-
-/* CTA */
-.cta {
-  padding: 70px;
-  text-align: center;
-  background: #ff4d6d;
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  width: 220px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.card button {
+  padding: 8px 20px;
+  background: #ff69b4;
   color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.cta button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  background: white;
-  color: #ff4d6d;
+/* ===== CONTACT / AUTH ===== */
+.contact, .auth-container {
+  padding: 60px 20px;
+  max-width: 450px;
+  margin: auto;
+  text-align: center;
+  background: #fff0f6;
+  border-radius: 15px;
+}
+.contact input, .contact textarea, .auth-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.contact textarea { height: 100px; resize: none; }
+.contact button, .auth-container button {
+  width: 100%;
+  padding: 12px;
+  background: #ff1493;
+  color: white;
   border: none;
-  border-radius: 30px;
-  font-weight: bold;
+  border-radius: 25px;
   cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #1f1f1f;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .features { flex-direction: column; align-items: center; }
+  .hero h1 { font-size: 2.5rem; }
+  .navbar { flex-direction: column; gap: 10px; }
 }
