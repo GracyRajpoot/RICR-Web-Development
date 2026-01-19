@@ -1,11 +1,11 @@
 import Contact from "../models/contactModel.js";
 
-export const newContact = async (req, res, next) => {
+export const NewContact = async (req, res, next) => {
   try {
-    const { fullName, email, mobile, message } = req.body;
+    const { fullName, email, mobileNumber, message } = req.body;
 
-    if (!fullName || !email || !mobile || !message) {
-      const error = new Error("All fields are required");
+    if (!fullName || !email || !mobileNumber || !message) {
+      const error = new Error("All feilds required");
       error.statusCode = 400;
       return next(error);
     }
@@ -13,14 +13,18 @@ export const newContact = async (req, res, next) => {
     const newContact = await Contact.create({
       fullName,
       email,
-      mobile,
+      mobileNumber,
       message,
     });
 
-    res.status(201).json({
-      message: "Thanks for contacting us, we will get back to you in 24 hours",
-      data: newContact,
-    });
+    console.log(newContact);
+
+    res
+      .status(201)
+      .json({
+        message:
+          "Thanks for Contacting us. We will Get Back to you in 24-48 Hours",
+      });
   } catch (error) {
     next(error);
   }
