@@ -10,6 +10,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const [validationError, setValidationError] = useState({});
 
@@ -26,34 +27,43 @@ const Register = () => {
       password: "",
       confirmPassword: "",
     });
+    setValidationError({});
   };
 
   const validate = () => {
-    let Error = {};
+    let error = {};
 
-    if (formData.fullName.length < 3) {
-      Error.fullName = "Name should be More Than 3 Characters";
-    } else {
-      if (!/^[A-Za-z ]+$/.test(formData.fullName)) {
-        Error.fullName = "Only Contain A-Z , a-z and space";
-      }
+    // Full Name
+    if (formData.fullName.trim().length < 3) {
+      error.fullName = "Name must be at least 3 characters";
+    } else if (!/^[A-Za-z ]+$/.test(formData.fullName)) {
+      error.fullName = "Only alphabets and spaces allowed";
     }
 
+    // Email
     if (
-      !/^[\w\.]+@(gmail|outlook|ricr|yahoo)\.(com|in|co.in)$/.test(
-        formData.email
-      )
+      !/^[\w\.]+@(gmail|outlook|yahoo)\.(com|in)$/.test(formData.email)
     ) {
-      Error.email = "Use Proper Email Format";
+      error.email = "Enter a valid email address";
     }
 
+    // Mobile Number
     if (!/^[6-9]\d{9}$/.test(formData.mobileNumber)) {
-      Error.mobileNumber = "Only Indian Mobile Number allowed";
+      error.mobileNumber = "Enter a valid Indian mobile number";
     }
 
-    setValidationError(Error);
+    // Password
+    if (formData.password.length < 6) {
+      error.password = "Password must be at least 6 characters";
+    }
 
-    return Object.keys(Error).length > 0 ? false : true;
+    // Confirm Password
+    if (formData.password !== formData.confirmPassword) {
+      error.confirmPassword = "Passwords do not match";
+    }
+
+    setValidationError(error);
+    return Object.keys(error).length === 0;
   };
 
   const handleSubmit = async (e) => {
@@ -61,138 +71,121 @@ const Register = () => {
     setIsLoading(true);
 
     if (!validate()) {
+      toast.error("Please fix validation errors");
       setIsLoading(false);
-      toast.error("Fill the Form Correctly");
       return;
     }
 
     try {
-      const res = await api.post("/auth/register", formData)
+      const res = await api.post("/auth/register", formData);
       toast.success(res.data.message);
       handleClearForm();
     } catch (error) {
-      console.log(error);
-      toast.error(error.message);
+      toast.error(error.response?.data?.message || "Registration failed");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <>
-      <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-6 px-4">
-        <div className="max-w-xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Registration
-            </h1>
-            <p className="text-lg text-gray-600">
-              You are 1 step away to stop your Cavings
-            </p>
-          </div>
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-6 px-4">
+      <div className="max-w-xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold">Registration</h1>
+          <p className="text-gray-600">You are 1 step away to stop your cravings</p>
+        </div>
 
-          {/* Form Container */}
-          <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
-            <form
-              onSubmit={handleSubmit}
-              onReset={handleClearForm}
-              className="p-8"
-            >
-              {/* Personal Information */}
-              <div className="mb-10">
-                <div className="space-y-4">
-                  <div>
-                    <input
-                      type="text"
-                      name="fullName"
-                      placeholder="Full Name"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required
-                      disabled={isLoading}
-                      className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                    />
-                    {validationError.fullName && (
-                      <span className="text-xs text-red-500">
-                        {validationError.fullName}
-                      </span>
-                    )}
-                  </div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    disabled={isLoading}
-                    className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                  />
-                  <input
-                    type="tel"
-                    name="mobileNumber"
-                    placeholder="Mobile Number"
-                    maxLength="10"
-                    value={formData.mobileNumber}
-                    onChange={handleChange}
-                    required
-                    disabled={isLoading}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                  />
-                  <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    placeholder="Create Password"
-                    onChange={handleChange}
-                    required
-                    disabled={isLoading}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                  />
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    required
-                    disabled={isLoading}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition"
-                  />
-                </div>
-              </div>
+        <div className="bg-white rounded-xl shadow-2xl">
+          <form onSubmit={handleSubmit} onReset={handleClearForm} className="p-8 space-y-4">
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Full Name"
+              value={formData.fullName}
+              onChange={handleChange}
+              disabled={isLoading}
+              className="w-full px-4 py-3 border-2 rounded-lg"
+            />
+            {validationError.fullName && (
+              <p className="text-red-500 text-sm">{validationError.fullName}</p>
+            )}
 
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              disabled={isLoading}
+              className="w-full px-4 py-3 border-2 rounded-lg"
+            />
+            {validationError.email && (
+              <p className="text-red-500 text-sm">{validationError.email}</p>
+            )}
 
-              <div className="flex gap-4 pt-8 border-t-2 border-gray-200">
-                <button
-                  type="reset"
-                  disabled={isLoading}
-                  className="flex-1 bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-lg hover:bg-gray-400 transition duration-300 transform hover:scale-105"
-                >
-                  Clear Form
-                </button>
+            <input
+              type="tel"
+              name="mobileNumber"
+              placeholder="Mobile Number"
+              maxLength="10"
+              value={formData.mobileNumber}
+              onChange={handleChange}
+              disabled={isLoading}
+              className="w-full px-4 py-3 border-2 rounded-lg"
+            />
+            {validationError.mobileNumber && (
+              <p className="text-red-500 text-sm">{validationError.mobileNumber}</p>
+            )}
 
-                {/* Submit Button */}
+            <input
+              type="password"
+              name="password"
+              placeholder="Create Password"
+              value={formData.password}
+              onChange={handleChange}
+              disabled={isLoading}
+              className="w-full px-4 py-3 border-2 rounded-lg"
+            />
+            {validationError.password && (
+              <p className="text-red-500 text-sm">{validationError.password}</p>
+            )}
 
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700 hover:to-indigo-800 transition duration-300 transform hover:scale-105 shadow-lg "
-                >
-                  Submit Registration
-                </button>
-              </div>
-            </form>
-          </div>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              disabled={isLoading}
+              className="w-full px-4 py-3 border-2 rounded-lg"
+            />
+            {validationError.confirmPassword && (
+              <p className="text-red-500 text-sm">
+                {validationError.confirmPassword}
+              </p>
+            )}
 
-          {/* Footer Note */}
-          <p className="text-center text-gray-600 mt-8 text-sm">
-            All fields marked are mandatory. We respect your privacy.
-          </p>
+            <div className="flex gap-4 pt-6">
+              <button
+                type="reset"
+                disabled={isLoading}
+                className="flex-1 bg-gray-300 py-3 rounded-lg"
+              >
+                Clear
+              </button>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="flex-1 bg-indigo-600 text-white py-3 rounded-lg"
+              >
+                {isLoading ? "Registering..." : "Register"}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

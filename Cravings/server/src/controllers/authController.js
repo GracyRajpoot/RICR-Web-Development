@@ -50,7 +50,7 @@ export const UserLogin = async (req, res, next) => {
 
     // check if user is rejistertrd or not
     const existingUser = await User.findOne({ email });
-    if (existingUser) {
+    if (!existingUser) {
       const error = new Error("Email already registered");
       error.statusCode = 409;
       return next(error);
