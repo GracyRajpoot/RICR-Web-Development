@@ -1,19 +1,27 @@
- import React, { useEffect,useState } from 'react';  // write imr for import this line
-import { useState} from 'react';
+import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 
- const AuthContext = React.createContext();
+const AuthContext = React.createContext();
 
- const AuthProvider = (props)=>{
+export const AuthProvider = (props) => {
+  const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("CravingUser")) || "");
+  const [isLogin, setIsLogin] = useState(!!user);
+  const[role, setRole] = useState(user?.role || "");
 
-    const [user,setUser] = useState({});
-    const [isLogin, setIsLogin] = useState(!!user);
+   
+  useEffect(() => {
+    setIsLogin(!!user);
+  }, [user]);
 
-    useEffect (()=> {
-        setIsLogin(!!user);
-   }, [user]);{
+  const value = { user, setUser, isLogin, setIsLogin };
 
- };
+  return (
+    <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
+  );
+};
 
-
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
 
 

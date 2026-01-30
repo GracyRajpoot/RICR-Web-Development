@@ -1,4 +1,4 @@
-import User from "../models/userModel.js";
+ /*  import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 
 export const UserRegister = async (req, res, next) => {
@@ -80,3 +80,21 @@ export const UserLogin = async (req, res, next) => {
 export const UserLogout = async (req, res) => {
   res.status(200).json({ message: "Logout successful" });
 };
+
+*/
+
+
+import express from "express";
+import {
+  UserRegister,
+  UserLogin,
+  UserLogout,
+} from "../controllers/authController.js";
+
+const router = express.Router();
+
+router.post("/register", UserRegister);
+router.post("/login", UserLogin);
+router.get("/logout", UserLogout);
+
+export default router;
